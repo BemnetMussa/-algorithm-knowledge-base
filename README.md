@@ -2,7 +2,7 @@
 
 Welcome to our collaborative DSA learning space.
 
-This repository is a student-powered knowledge base for our company training program. Each student contributes at least one clear, beginner-friendly algorithm note, and the whole class benefits from shared explanations, examples, and practice questions. Progress can be fast or slow, and that is okay; this repo is about learning together, building confidence, and helping one another.
+This repository is a student-powered knowledge base for our A2SV - software engineering training program. Each student contributes at least one clear, beginner-friendly algorithm note, and the whole class benefits from shared explanations, examples, and practice questions. Progress can be fast or slow, and that is okay; this repo is about learning together, building confidence, and helping one another.
 
 ## How to Contribute
 
