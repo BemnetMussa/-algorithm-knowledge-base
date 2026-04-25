@@ -2,7 +2,7 @@
 
 Welcome to our collaborative DSA learning space.
 
-This repository is a student-powered knowledge base for our A2SV - software engineering training program. Each student contributes at least one clear, beginner-friendly algorithm note, and the whole class benefits from shared explanations, examples, and practice questions. Progress can be fast or slow, and that is okay; this repo is about learning together, building confidence, and helping one another.
+This repository is a student-powered knowledge base for the A2SV Software Engineer Trainee Training Program, and it is open to all algorithm lovers who want to learn and share. Each contributor adds at least one clear, beginner-friendly algorithm note, and everyone benefits from shared explanations, examples, and practice questions. Progress can be fast or slow, and that is okay; this repo is about learning together, building confidence, and helping one another.
 
 ## How to Contribute
 
@@ -34,7 +34,7 @@ Copy the template below exactly and fill in your content.
 
 ### 4) Open a Pull Request (PR)
 
-Submit your branch as a Pull Request to the teacher for review and merge.
+Submit your branch as a Pull Request to this repository for review and merge.
 
 PR title example:
 
@@ -64,7 +64,7 @@ Copy this template into your algorithm file:
 ## Code example (<Choose one: Python / Java / JavaScript>)
 ```python
 # Put your code example here
-````
+```
 
 ## Time & space complexity (Big O)
 - Time: <best / average / worst if relevant>
@@ -85,7 +85,7 @@ Copy this template into your algorithm file:
 </details>
 
 ## One thing that was confusing to me
-<Write one concept that confused you, even if you understand it now. This helps the teacher identify teaching gaps.>
+<Write one concept that confused you, even if you understand it now. This helps identify learning gaps.>
 
 ## See also
 - [<Related Algorithm 1>](../<path-to-related-file>.md)
@@ -163,7 +163,7 @@ def binary_search(nums, target):
             right = mid - 1
 
     return -1
-````
+```
 
 ## Time & space complexity (Big O)
 - Time: `O(log n)`
@@ -198,7 +198,7 @@ Yes. Please submit one first, wait until it is merged, then you can claim and su
 
 ### What if I do not know Git/GitHub well?
 That is completely fine. You can use this beginner guide: [GitHub Pull Request Guide](https://docs.github.com/en/get-started/quickstart/contributing-to-projects).  
-If needed, you may also send your `.md` file directly to the teacher, and we can help upload it.
+If needed, you may also share your `.md` file with a maintainer, and we can help upload it.
 
 ### How will I be credited?
 You will be credited by your GitHub username in commit/PR history, and you may include your real name in your note if you want.
