@@ -4,6 +4,8 @@ Welcome to our collaborative DSA learning space.
 
 This repository is a student-powered knowledge base for the A2SV Software Engineer Trainee Training Program, and it is open to all algorithm lovers who want to learn and share. Each contributor adds at least one clear, beginner-friendly algorithm note, and everyone benefits from shared explanations, examples, and practice questions. Progress can be fast or slow, and that is okay; this repo is about learning together, building confidence, and helping one another.
 
+> "Shared knowledge is far greater than individual knowledge."
+
 ## How to Contribute
 
 ### 1) Claim an Algorithm First (avoid duplicates)
