@@ -63,19 +63,19 @@ Copy this template into your algorithm file:
 2. <Step 2>
 3. <Step 3>
 
-## Templates (<Choose one: Python / Java / JavaScript>)
+## Templates (<Choose one: Python / Java / C++ >)
 ```python
-# Put your code example here
+# Put your template here
 ```
 
 ## Time & space complexity (Big O)
 - Time: <best / average / worst if relevant>
 - Space: <Big O>
 
-## Practice questions
-1. <Question 1 (prefer LeetCode/Codeforces when relevant)>
-2. <Question 2 (prefer LeetCode/Codeforces when relevant)>
-3. <Question 3 (optional, prefer LeetCode/Codeforces when relevant)>
+## Practice questions (concept check)
+1. <Concept question 1>
+2. <Concept question 2>
+3. <Concept question 3 (optional)>
 
 <details>
 <summary>Answers</summary>
@@ -85,6 +85,11 @@ Copy this template into your algorithm file:
 3. <Answer 3 (if Q3 exists)>
 
 </details>
+
+## Practice questions (LeetCode/Codeforces)
+1. <Problem link 1>
+2. <Problem link 2>
+3. <Problem link 3 (optional)>
 
 ## One thing that was confusing to me
 <Write one concept that confused you, even if you understand it now. This helps identify learning gaps.>

@@ -48,22 +48,19 @@ def bfs(graph, start):
 2. In what type of graph does BFS guarantee the shortest path?
 3. What can go wrong if we mark nodes as visited only when popping from the queue?
 
-## Practice questions (LeetCode)
-1. [Shortest Path in Binary Matrix](https://leetcode.com/problems/shortest-path-in-binary-matrix)
-2. [01 Matrix](https://leetcode.com/problems/01-matrix)
-3. [Word Ladder](https://leetcode.com/problems/word-ladder)
-
 <details>
 <summary>Answers</summary>
 
 1. Queue gives FIFO behavior, which processes nodes in level order.
 2. In an unweighted graph (or a graph where all edge weights are equal).
 3. The same node may be added to the queue multiple times, causing extra work.
-4. Single-source BFS on 8 directions from `(0,0)` to `(n-1,n-1)`.
-5. Multi-source BFS from all `0` cells to compute nearest distance for each `1`.
-6. BFS over words (or wildcard patterns) to find the shortest transformation sequence.
 
 </details>
+
+## Practice questions (LeetCode)
+1. [Shortest Path in Binary Matrix](https://leetcode.com/problems/shortest-path-in-binary-matrix)
+2. [01 Matrix](https://leetcode.com/problems/01-matrix)
+3. [Word Ladder](https://leetcode.com/problems/word-ladder)
 
 ## One thing that was confusing to me
 At first, I mixed up BFS and DFS because both visit all nodes; BFS is the one that expands by levels using a queue.
