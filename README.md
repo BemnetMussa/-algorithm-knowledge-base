@@ -64,6 +64,7 @@ Copy this template into your algorithm file:
 3. <Step 3>
 
 ## Templates (<Choose one: Python / Java / C++ >)
+<You can include multiple templates when relevant, for example: standard, iterative/recursive, or problem-specific variants.>
 ```python
 # Put your template here
 ```

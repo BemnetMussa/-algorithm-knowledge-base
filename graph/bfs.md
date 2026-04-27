@@ -19,6 +19,7 @@ BFS explores a graph level by level from a start node, visiting all nearest node
 4. Stop when the queue is empty (or when your target is found).
 
 ## Templates (Python)
+### 1) Standard BFS (graph traversal)
 ```python
 from collections import deque
 
@@ -37,6 +38,86 @@ def bfs(graph, start):
                 queue.append(neighbor)
 
     return order
+```
+
+### 2) Multi-source BFS (all sources start together)
+```python
+from collections import deque
+
+def multi_source_bfs(graph, sources):
+    dist = {}
+    queue = deque()
+
+    for s in sources:
+        dist[s] = 0
+        queue.append(s)
+
+    while queue:
+        node = queue.popleft()
+        for nei in graph.get(node, []):
+            if nei not in dist:
+                dist[nei] = dist[node] + 1
+                queue.append(nei)
+
+    return dist
+```
+
+### 3) Level-order BFS (process nodes by layers)
+```python
+from collections import deque
+
+def bfs_levels(graph, start):
+    visited = {start}
+    queue = deque([start])
+    levels = []
+
+    while queue:
+        level_size = len(queue)
+        current_level = []
+
+        for _ in range(level_size):
+            node = queue.popleft()
+            current_level.append(node)
+            for nei in graph.get(node, []):
+                if nei not in visited:
+                    visited.add(nei)
+                    queue.append(nei)
+
+        levels.append(current_level)
+
+    return levels
+```
+
+### 4) Bidirectional BFS (shortest path between two nodes)
+```python
+from collections import deque
+
+def bidirectional_bfs(graph, start, target):
+    if start == target:
+        return 0
+
+    front = {start}
+    back = {target}
+    visited = {start, target}
+    steps = 0
+
+    while front and back:
+        if len(front) > len(back):
+            front, back = back, front
+
+        next_front = set()
+        for node in front:
+            for nei in graph.get(node, []):
+                if nei in back:
+                    return steps + 1
+                if nei not in visited:
+                    visited.add(nei)
+                    next_front.add(nei)
+
+        front = next_front
+        steps += 1
+
+    return -1
 ```
 
 ## Time & space complexity (Big O)
