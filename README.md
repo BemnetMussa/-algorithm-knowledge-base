@@ -25,7 +25,7 @@ Before writing, claim the algorithm you want to document:
 Add your note in the appropriate category folder. Example path:
 
 ```text
-/algorithms/sorting/bubble-sort.md
+/sorting/bubble-sort.md
 ```
 
 Use lowercase and hyphens for file names.
@@ -63,7 +63,7 @@ Copy this template into your algorithm file:
 2. <Step 2>
 3. <Step 3>
 
-## Code example (<Choose one: Python / Java / JavaScript>)
+## Templates (<Choose one: Python / Java / JavaScript>)
 ```python
 # Put your code example here
 ```
@@ -73,9 +73,9 @@ Copy this template into your algorithm file:
 - Space: <Big O>
 
 ## Practice questions
-1. <Question 1>
-2. <Question 2>
-3. <Question 3 (optional)>
+1. <Question 1 (prefer LeetCode/Codeforces when relevant)>
+2. <Question 2 (prefer LeetCode/Codeforces when relevant)>
+3. <Question 3 (optional, prefer LeetCode/Codeforces when relevant)>
 
 <details>
 <summary>Answers</summary>
@@ -99,24 +99,23 @@ Copy this template into your algorithm file:
 You can organize notes like this:
 
 ```text
-algorithms/
-  sorting/
-  searching/
-  graph/
-  dynamic-programming/
-  data-structures/
-  greedy/
-  backtracking/
-  bit-manipulation/
+sorting/
+searching/
+graph/
+dynamic-programming/
+data-structures/
+greedy/
+backtracking/
+bit-manipulation/
 ```
 
 Example full paths:
 
-- `algorithms/sorting/bubble-sort.md`
-- `algorithms/searching/binary-search.md`
-- `algorithms/graph/bfs.md`
-- `algorithms/dynamic-programming/knapsack.md`
-- `algorithms/data-structures/stack.md`
+- `sorting/bubble-sort.md`
+- `searching/binary-search.md`
+- `graph/bfs.md`
+- `dynamic-programming/knapsack.md`
+- `data-structures/stack.md`
 
 ## Quality Guidelines
 
@@ -126,6 +125,7 @@ Write for a fellow student who is struggling, not for an expert.
 - Use plain language before advanced terms.
 - Add small diagrams when useful (ASCII diagrams or image links are welcome).
 - Prefer short sections and concrete examples over long theory.
+- Include practice problems from platforms like LeetCode or Codeforces when relevant.
 - Perfection is not required; clarity and effort matter most.
 
 ## Example Note (Reference): Binary Search
@@ -149,7 +149,7 @@ Binary Search finds a target value in a sorted list by repeatedly checking the m
    - If target is larger, continue in the right half.
 4. Repeat until found or until `left` passes `right` (not found).
 
-## Code example (Python)
+## Templates (Python)
 ```python
 def binary_search(nums, target):
     left, right = 0, len(nums) - 1
