@@ -20,6 +20,8 @@ Before writing, claim the algorithm you want to document:
 | Binary Search | @student-username | In progress |
 | Bubble Sort | @another-student | Done |
 | Sliding Window | @Amanuel-Merara | Done |
+| Depth First Search | @BemnetMussa| Done |
+| Breadth First Search | @BemnetMussa | Done |
 
 ### 2) Create Your Note File in the Correct Folder
 
