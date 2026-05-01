@@ -26,6 +26,7 @@ def dfs_recursive(graph, node, visited, order):
 
     for neighbor in graph.get(node, []):
         if neighbor not in visited:
+            # Go deep first, then naturally backtrack on return.
             dfs_recursive(graph, neighbor, visited, order)
 ```
 
@@ -44,6 +45,7 @@ def dfs_iterative(graph, start):
         visited.add(node)
         order.append(node)
 
+        # Reverse keeps traversal closer to recursive neighbor order.
         for neighbor in reversed(graph.get(node, [])):
             if neighbor not in visited:
                 stack.append(neighbor)
@@ -59,6 +61,7 @@ def has_cycle_directed(graph):
     def dfs(node):
         color[node] = 1
         for nei in graph.get(node, []):
+            # Back-edge to a "visiting" node means a directed cycle.
             if color.get(nei, 0) == 1:
                 return True
             if color.get(nei, 0) == 0 and dfs(nei):
@@ -83,6 +86,7 @@ def has_cycle_undirected(graph):
             if nei not in visited:
                 if dfs(nei, node):
                     return True
+            # Visited neighbor that is not the parent implies a cycle.
             elif nei != parent:
                 return True
         return False

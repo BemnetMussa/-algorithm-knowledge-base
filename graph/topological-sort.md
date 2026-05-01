@@ -28,6 +28,7 @@ def topological_sort_kahn(n, edges):
         graph[u].append(v)
         indegree[v] += 1
 
+    # Start with nodes that currently have no prerequisites.
     queue = deque(i for i in range(n) if indegree[i] == 0)
     order = []
 
@@ -40,6 +41,7 @@ def topological_sort_kahn(n, edges):
             if indegree[nei] == 0:
                 queue.append(nei)
 
+    # If not all nodes are processed, a cycle exists.
     return order if len(order) == n else []
 ```
 
@@ -63,11 +65,13 @@ def topological_sort_dfs(n, edges):
                 dfs(nei)
                 if has_cycle:
                     return
+            # Back-edge to "visiting" node indicates a cycle.
             elif color[nei] == 1:
                 has_cycle = True
                 return
 
         color[node] = 2
+        # Postorder push; reverse at the end for topo order.
         order.append(node)
 
     for i in range(n):

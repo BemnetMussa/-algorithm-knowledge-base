@@ -21,10 +21,12 @@ Prefix Sum precomputes cumulative sums so range-sum queries can be answered in c
 def build_prefix(nums):
     prefix = [0] * (len(nums) + 1)
     for i, x in enumerate(nums):
+        # prefix[i+1] stores sum of nums[0..i].
         prefix[i + 1] = prefix[i] + x
     return prefix
 
 def range_sum(prefix, left, right):
+    # Sum of nums[left..right].
     return prefix[right + 1] - prefix[left]
 ```
 
@@ -39,6 +41,7 @@ def build_prefix_2d(matrix):
 
     for r in range(rows):
         for c in range(cols):
+            # Inclusion-exclusion for rectangle (0,0) -> (r,c).
             pref[r + 1][c + 1] = (
                 matrix[r][c]
                 + pref[r][c + 1]
@@ -61,10 +64,11 @@ def sum_region(pref, r1, c1, r2, c2):
 def subarray_sum_equals_k(nums, k):
     count = 0
     prefix = 0
-    freq = {0: 1}
+    freq = {0: 1}  # Empty-prefix count for subarrays starting at index 0.
 
     for x in nums:
         prefix += x
+        # Count prior prefixes that make current subarray sum k.
         count += freq.get(prefix - k, 0)
         freq[prefix] = freq.get(prefix, 0) + 1
 
@@ -76,6 +80,7 @@ def subarray_sum_equals_k(nums, k):
 def apply_range_updates(n, updates):
     diff = [0] * (n + 1)
     for left, right, val in updates:
+        # Mark range start and "undo" right after range end.
         diff[left] += val
         if right + 1 < len(diff):
             diff[right + 1] -= val

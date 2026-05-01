@@ -29,6 +29,7 @@ def bfs(graph, start):
     queue = deque([start])
 
     while queue:
+        # FIFO pop ensures level-by-level traversal.
         node = queue.popleft()
         order.append(node)
 
@@ -48,6 +49,7 @@ def multi_source_bfs(graph, sources):
     dist = {}
     queue = deque()
 
+    # All sources start at distance 0 at the same time.
     for s in sources:
         dist[s] = 0
         queue.append(s)
@@ -72,6 +74,7 @@ def bfs_levels(graph, start):
     levels = []
 
     while queue:
+        # Snapshot queue size to process exactly one level.
         level_size = len(queue)
         current_level = []
 
@@ -102,6 +105,7 @@ def bidirectional_bfs(graph, start, target):
     steps = 0
 
     while front and back:
+        # Expand smaller frontier for better performance.
         if len(front) > len(back):
             front, back = back, front
 
