@@ -111,6 +111,7 @@ You can organize notes like this:
 sorting/
 searching/
 graph/
+linked-list/
 dynamic-programming/
 data-structures/
 greedy/
@@ -123,6 +124,7 @@ Example full paths:
 - `sorting/bubble-sort.md`
 - `searching/binary-search.md`
 - `graph/bfs.md`
+- `linked-list/singly-linked-list.md`
 - `dynamic-programming/knapsack.md`
 - `data-structures/stack.md`
 
