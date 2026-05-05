@@ -8,6 +8,10 @@ This repository is a student-powered knowledge base for the A2SV Software Engine
 
 ## How to Contribute
 
+Before you start, please read:
+- [CONTRIBUTING.md](./CONTRIBUTING.md)
+- [AGENTS.md](./AGENTS.md)
+
 ### 1) Claim an Algorithm First (avoid duplicates)
 
 Before writing, claim the algorithm you want to document:
@@ -22,6 +26,11 @@ Before writing, claim the algorithm you want to document:
 | Sliding Window | @Amanuel-Merara | Done |
 | Depth First Search | @BemnetMussa| Done |
 | Breadth First Search | @BemnetMussa | Done |
+| Topological Sort | @BemnetMussa | Done |
+| Prefix Sum | @BemnetMussa | Done |
+| Linked List | @BemnetMussa | Done |
+| Recursion | @BemnetMussa | Done |
+| Heap | @BemnetMussa | Done |
 
 ### 2) Create Your Note File in the Correct Folder
 
@@ -68,6 +77,9 @@ Copy this template into your algorithm file:
 
 ## Templates (<Choose one: Python / Java / C++ >)
 <You can include multiple templates when relevant, for example: standard, iterative/recursive, or problem-specific variants.>
+Use when: <When this exact template is useful>
+Input: <Function inputs>
+Output: <What the function returns>
 ```python
 # Put your template here
 ```
@@ -186,7 +198,7 @@ def binary_search(nums, target):
 - Time: `O(log n)`
 - Space: `O(1)` (iterative version)
 
-## Practice questions
+## Practice questions (concept check)
 1. Why does Binary Search require a sorted array?
 2. What happens when the target does not exist in the array?
 3. How is Binary Search faster than linear search for large inputs?
@@ -199,6 +211,11 @@ def binary_search(nums, target):
 3. Binary Search removes half the remaining data each step (`O(log n)`), while linear search checks one by one (`O(n)`).
 
 </details>
+
+## Practice questions (LeetCode/Codeforces)
+1. [Binary Search](https://leetcode.com/problems/binary-search)
+2. [Search Insert Position](https://leetcode.com/problems/search-insert-position)
+3. [Find First and Last Position of Element in Sorted Array](https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array)
 
 ## One thing that was confusing to me
 At first, I was confused about why the loop condition is `left <= right` and not `left < right`; I learned that `<=` is needed so single-element ranges are still checked.

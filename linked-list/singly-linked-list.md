@@ -70,6 +70,9 @@ prev <- cur    nxt -> ...
 
 ## Templates (Python)
 ### 1) Node + traversal + insert at head
+Use when: basic construction and traversal template.
+Input: head node and values.
+Output: updated head / Python list view.
 ```python
 class ListNode:
     def __init__(self, val=0, next=None):
@@ -77,7 +80,7 @@ class ListNode:
         self.next = next
 
 def insert_head(head, val):
-    # New node points to old head.
+    # O(1): new node becomes head.
     return ListNode(val, head)
 
 def to_list(head):
@@ -90,14 +93,17 @@ def to_list(head):
 ```
 
 ### 2) Reverse (iterative)
+Use when: reverse a list in-place in one pass.
+Input: head node.
+Output: new head of reversed list.
 ```python
 def reverse_list(head):
     prev = None
     cur = head
 
     while cur:
-        nxt = cur.next      # Save next before rewiring.
-        cur.next = prev     # Reverse pointer.
+        nxt = cur.next      # Save next pointer first.
+        cur.next = prev     # Reverse current link.
         prev = cur
         cur = nxt
 
@@ -105,8 +111,12 @@ def reverse_list(head):
 ```
 
 ### 3) Middle node (fast / slow)
+Use when: find middle in one pass.
+Input: head node.
+Output: middle node (second middle for even length).
 ```python
 def middle_node(head):
+    # Returns second middle when length is even.
     slow = fast = head
     while fast and fast.next:
         slow = slow.next
@@ -115,8 +125,12 @@ def middle_node(head):
 ```
 
 ### 4) Cycle detection (Floyd)
+Use when: check if linked list contains a cycle.
+Input: head node.
+Output: boolean.
 ```python
 def has_cycle(head):
+    # Floyd: if cycle exists, slow/fast eventually meet.
     slow = fast = head
 
     while fast and fast.next:
@@ -129,6 +143,9 @@ def has_cycle(head):
 ```
 
 ### 5) Merge two sorted lists
+Use when: merge two sorted linked lists into one sorted list.
+Input: two sorted list heads.
+Output: head of merged sorted list.
 ```python
 def merge_two_lists(l1, l2):
     dummy = ListNode(0)
@@ -143,7 +160,7 @@ def merge_two_lists(l1, l2):
             l2 = l2.next
         tail = tail.next
 
-    # Attach remaining nodes.
+    # At most one list remains; attach it directly.
     tail.next = l1 if l1 else l2
     return dummy.next
 ```

@@ -38,6 +38,9 @@ dummy -> (1) -> (2) -> None
 
 ## Templates (Python)
 ### 1) Stack using singly linked list (head = top)
+Use when: you need LIFO with `O(1)` push/pop.
+Input: values to push/pop.
+Output: popped value or `None`.
 ```python
 class ListNode:
     def __init__(self, val=0, next=None):
@@ -49,6 +52,7 @@ class LinkedStack:
         self.head = None
 
     def push(self, val):
+        # O(1): push at head.
         self.head = ListNode(val, self.head)
 
     def pop(self):
@@ -60,12 +64,16 @@ class LinkedStack:
 ```
 
 ### 2) Queue using singly linked list (`head` + `tail`)
+Use when: you need FIFO with `O(1)` enqueue/dequeue.
+Input: values to enqueue.
+Output: dequeued value or `None`.
 ```python
 class LinkedQueue:
     def __init__(self):
         self.head = self.tail = None
 
     def enqueue(self, val):
+        # O(1): append at tail.
         node = ListNode(val)
         if self.tail:
             self.tail.next = node
@@ -74,6 +82,7 @@ class LinkedQueue:
             self.head = self.tail = node
 
     def dequeue(self):
+        # O(1): remove from head.
         if not self.head:
             return None
         val = self.head.val
@@ -84,6 +93,7 @@ class LinkedQueue:
 ```
 
 ### 3) LRU-style: doubly list order + `dict` for O(1) lookup
+Use when: you need recency-aware cache eviction.
 ```python
 # dict[key] = DListNode(key, value)
 # List: MRU near one sentinel, LRU near the other; evict LRU on overflow.

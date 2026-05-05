@@ -41,6 +41,9 @@ becomes:
 
 ## Templates (Python)
 ### 1) Node + insert at head + remove node (given reference)
+Use when: direct pointer rewiring with optional null checks.
+Input: head/node references and value.
+Output: updated head or detached node.
 ```python
 class DListNode:
     def __init__(self, val=0, prev=None, next=None):
@@ -49,13 +52,14 @@ class DListNode:
         self.next = next
 
 def insert_head(head, val):
+    # O(1) head insert.
     node = DListNode(val, None, head)
     if head:
         head.prev = node
     return node  # new head
 
 def unlink_node(node):
-    # Detach node from its neighbors (assume node is not None).
+    # O(1) detach when node reference is known.
     if node.prev:
         node.prev.next = node.next
     if node.next:
@@ -64,6 +68,9 @@ def unlink_node(node):
 ```
 
 ### 2) Sentinel head + tail (dummy nodes, fewer null checks)
+Use when: you want cleaner code with minimal edge-case branching.
+Input: operations on a maintained doubly list object.
+Output: updated list state and node handles.
 ```python
 class DoublyLinkedList:
     def __init__(self):
@@ -73,14 +80,14 @@ class DoublyLinkedList:
         self.tail.prev = self.head
 
     def append_last(self, val):
-        # Insert node just before tail sentinel.
+        # Insert before tail sentinel (always valid position).
         node = DListNode(val, self.tail.prev, self.tail)
         self.tail.prev.next = node
         self.tail.prev = node
         return node  # return handle for O(1) LRU moves
 
     def move_to_front(self, node):
-        # Example pattern: unlink then insert after head sentinel.
+        # LRU-style move: detach then place right after head.
         self._unlink(node)
         nxt = self.head.next
         self.head.next = node
@@ -89,11 +96,13 @@ class DoublyLinkedList:
         nxt.prev = node
 
     def _unlink(self, node):
+        # Internal helper: assumes node is not a sentinel.
         node.prev.next = node.next
         node.next.prev = node.prev
 ```
 
 ### 3) LRU-style sketch (doubly list + map): get / put
+Use when: constant-time cache lookup + recency updates are required.
 ```python
 # Pattern: map[key] -> DListNode with (key, value).
 # List order: head (MRU) ... tail (LRU). Evict from tail side.

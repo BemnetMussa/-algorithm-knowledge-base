@@ -43,23 +43,30 @@ parent      = (i - 1) // 2
 
 ## Templates (Python)
 ### 1) Min-heap basics with `heapq`
+Use when: you need frequent minimum extraction.
+Input: list of numbers.
+Output: current minimum and updated heap.
 ```python
 import heapq
 
 def min_heap_demo(nums):
     heap = nums[:]
-    heapq.heapify(heap)  # O(n) build
+    heapq.heapify(heap)  # TC: O(n), make min-heap in-place
 
-    heapq.heappush(heap, 4)     # O(log n)
-    smallest = heapq.heappop(heap)  # O(log n)
+    heapq.heappush(heap, 4)     # TC: O(log n)
+    smallest = heapq.heappop(heap)  # TC: O(log n)
     return smallest, heap
 ```
 
 ### 2) Max-heap pattern in Python (negate values)
+Use when: you need max-heap behavior in Python `heapq`.
+Input: list of numbers.
+Output: largest element after one push/pop step.
 ```python
 import heapq
 
 def max_heap_demo(nums):
+    # Python has min-heap only; negate to simulate max-heap.
     heap = [-x for x in nums]
     heapq.heapify(heap)
 
@@ -69,27 +76,38 @@ def max_heap_demo(nums):
 ```
 
 ### 3) Top-k largest elements (min-heap of size `k`)
+Use when: keep only the largest `k` seen so far.
+Input: list of numbers, integer `k`.
+Output: largest `k` elements in descending order.
 ```python
 import heapq
 
 def top_k_largest(nums, k):
+    if k <= 0:
+        return []
     heap = []
 
     for x in nums:
         if len(heap) < k:
             heapq.heappush(heap, x)
         elif x > heap[0]:
-            # Replace smallest among top-k.
+            # Invariant: heap stores current top-k largest values.
             heapq.heapreplace(heap, x)
 
     return sorted(heap, reverse=True)
 ```
 
 ### 4) Kth largest element
+Use when: find kth largest without full sort.
+Input: list of numbers, integer `k` (1-indexed).
+Output: kth largest value.
 ```python
 import heapq
 
 def kth_largest(nums, k):
+    if k <= 0 or k > len(nums):
+        return None
+    # Invariant: heap contains k largest seen so far.
     heap = nums[:k]
     heapq.heapify(heap)
 
@@ -101,6 +119,9 @@ def kth_largest(nums, k):
 ```
 
 ### 5) Merge k sorted lists (heap by current value)
+Use when: merge multiple sorted arrays/lists efficiently.
+Input: list of sorted lists.
+Output: one globally sorted list.
 ```python
 import heapq
 
@@ -110,7 +131,7 @@ def merge_k_sorted_lists(lists):
 
     for i, arr in enumerate(lists):
         if arr:
-            # (value, list_index, element_index)
+            # Entry: (value, list_id, idx_in_list)
             heapq.heappush(heap, (arr[0], i, 0))
 
     while heap:

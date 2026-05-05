@@ -39,29 +39,40 @@ fact(2)=2, fact(3)=6, fact(4)=24
 
 ## Templates (Python)
 ### 1) Generic recursion skeleton
+Use when: any problem can be reduced to a smaller same-type state.
+Input: current state.
+Output: solved value for that state.
 ```python
 def solve(state):
-    # Base case: stop recursion.
+    # Base case (must terminate).
     if is_base(state):
         return base_answer(state)
 
-    # Recursive case: reduce state.
+    # Recursive case (must shrink state).
     next_state = reduce_state(state)
     sub = solve(next_state)
     return combine(state, sub)
 ```
 
 ### 2) Simple single-branch recursion (factorial)
+Use when: one recursive subproblem per call.
+Input: non-negative integer `n`.
+Output: `n!`.
 ```python
 def factorial(n):
+    # TC: O(n), SC: O(n) due to recursion stack.
     if n <= 1:
         return 1
     return n * factorial(n - 1)
 ```
 
 ### 3) Tree recursion (preorder traversal)
+Use when: tree problems that naturally split into left/right subtrees.
+Input: root node.
+Output: preorder list.
 ```python
 def preorder(root):
+    # TC: O(n), SC: O(h) stack; h = tree height.
     if root is None:
         return []
 
@@ -70,6 +81,9 @@ def preorder(root):
 ```
 
 ### 4) Backtracking recursion (choose / explore / unchoose)
+Use when: enumerate all valid combinations/permutations.
+Input: current path, available choices, result container.
+Output: fills `result` with solutions.
 ```python
 def backtrack(path, choices, result):
     if is_solution(path):
@@ -80,17 +94,19 @@ def backtrack(path, choices, result):
         if not is_valid(path, choice):
             continue
 
-        # Choose
+        # Choose -> Explore -> Undo (core backtracking pattern).
         path.append(choice)
-        # Explore
         backtrack(path, next_choices(path, choices), result)
-        # Unchoose
         path.pop()
 ```
 
 ### 5) Recursion + memoization (top-down DP)
+Use when: recursive subproblems repeat many times.
+Input: integer `n`, optional memo map.
+Output: computed value with caching.
 ```python
 def fib(n, memo=None):
+    # TC: O(n), SC: O(n) with memo + recursion stack.
     if memo is None:
         memo = {}
     if n <= 1:
