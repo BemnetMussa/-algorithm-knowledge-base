@@ -113,6 +113,7 @@ searching/
 graph/
 linked-list/
 recursion/
+heap/
 dynamic-programming/
 data-structures/
 greedy/
@@ -127,6 +128,7 @@ Example full paths:
 - `graph/bfs.md`
 - `linked-list/singly-linked-list.md`
 - `recursion/recursion.md`
+- `heap/heap.md`
 - `dynamic-programming/knapsack.md`
 - `data-structures/stack.md`
 
