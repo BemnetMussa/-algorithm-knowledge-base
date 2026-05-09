@@ -31,6 +31,7 @@ Before writing, claim the algorithm you want to document:
 | Linked List | @BemnetMussa | Done |
 | Recursion | @BemnetMussa | Done |
 | Heap | @BemnetMussa | Done |
+| Union-Find | @BemnetMussa | Done |
 
 ### 2) Create Your Note File in the Correct Folder
 
